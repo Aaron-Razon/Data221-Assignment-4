@@ -19,6 +19,7 @@ training_feature_matrix_X, testing_feature_matrix_X, training_target_vector_y, t
     feature_matrix_X,
     target_vector_y,
     test_size=0.20,
+    stratify=target_vector_y,
     random_state=42
 )
 
