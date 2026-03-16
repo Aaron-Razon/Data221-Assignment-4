@@ -21,6 +21,14 @@ training_feature_matrix_X, testing_feature_matrix_X, training_target_vector_y, t
     random_state=42
 )
 
+# === Create the Constrained Decision Tree Model ===
+# max_depth=3 is used to limit how deep the tree can grow
+constrained_decision_tree_model = DecisionTreeClassifier(
+    criterion="entropy",
+    max_depth=3,
+    random_state=42
+)
+
 # === Train the Model ===
 constrained_decision_tree_model.fit(training_feature_matrix_X, training_target_vector_y)
 
