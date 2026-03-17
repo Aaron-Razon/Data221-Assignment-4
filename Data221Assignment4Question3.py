@@ -43,3 +43,21 @@ testing_accuracy = accuracy_score(testing_target_vector_y, testing_predictions_y
 # === Print the Accuracy Results ===
 print("Training Accuracy:", training_accuracy)
 print("Test Accuracy:", testing_accuracy)
+
+# === Find the Top Five Most Important Features ===
+feature_importance_pairs = list(
+    zip(breast_cancer_dataset.feature_names, constrained_decision_tree_model.feature_importances_)
+)
+
+sorted_feature_importance_pairs = sorted(
+    feature_importance_pairs,
+    key=lambda feature_pair: feature_pair[1],
+    reverse=True
+)
+
+top_five_feature_importance_pairs = sorted_feature_importance_pairs[:5]
+
+# === Print the Top Five Most Important Features ===
+print("\nTop Five Most Important Features:")
+for feature_name, importance_score in top_five_feature_importance_pairs:
+    print(f"{feature_name}: {importance_score:.4f}")
