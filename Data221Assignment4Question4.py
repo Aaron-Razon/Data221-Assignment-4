@@ -34,7 +34,8 @@ standardized_testing_feature_matrix_X = feature_scaler.transform(testing_feature
 
 # === Build the Neural Network Model ===
 binary_classification_neural_network_model = tf.keras.Sequential([
-    tf.keras.layers.Dense(16, activation="relu", input_shape=(standardized_training_feature_matrix_X.shape[1],)),
+    tf.keras.Input(shape=(standardized_training_feature_matrix_X.shape[1],)),
+    tf.keras.layers.Dense(16, activation="relu"),
     tf.keras.layers.Dense(1, activation="sigmoid")]
 )
 
