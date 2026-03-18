@@ -83,6 +83,17 @@ neural_network_confusion_matrix = confusion_matrix(
     neural_network_testing_predictions_y
 )
 
+print("\nNeural Network Confusion Matrix:")
+print(neural_network_confusion_matrix)
+
+# === Display the Neural Network Confusion Matrix ===
+ConfusionMatrixDisplay(
+    confusion_matrix=neural_network_confusion_matrix,
+    display_labels=breast_cancer_dataset.target_names
+).plot()
+plt.title("Neural Network Confusion Matrix")
+plt.show()
+
 # ==================================================
 # Constrained Decision Tree
 # ==================================================
@@ -100,7 +111,18 @@ constrained_decision_tree_model.fit(training_feature_matrix_X, training_target_v
 # === Make Decision Tree Predictions on the Test Set ===
 decision_tree_testing_predictions_y = constrained_decision_tree_model.predict(testing_feature_matrix_X)
 
-# === Add the Decision Tree Confusion Matrix ===
+# === Compute the Decision Tree Confusion Matrix ===
 decision_tree_confusion_matrix = confusion_matrix(
     testing_target_vector_y, decision_tree_testing_predictions_y
 )
+
+print("Decision Tree Confusion Matrix:")
+print(decision_tree_confusion_matrix)
+
+# === Display the Decision Tree Confusion Matrix ===
+ConfusionMatrixDisplay(
+    confusion_matrix=decision_tree_confusion_matrix,
+    display_labels=breast_cancer_dataset.target_names,
+).plot()
+plt.title("Decision Tree Confusion Matrix")
+plt.show()
