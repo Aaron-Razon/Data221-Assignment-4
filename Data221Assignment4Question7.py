@@ -3,10 +3,8 @@
 from tensorflow.keras.datasets import fashion_mnist
 import tensorflow as tf
 import numpy as np
-from sklearn.metrics import confusion_matrix
-
-
-from Data221Assignment4Question6 import fashion_mnist_cnn_model
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+import matplotlib.pyplot as plt
 
 # === Load the Fashion MNIST Dataset ===
 (training_images_X, training_labels_y), (testing_images_X, testing_labels_y) = fashion_mnist.load_data()
@@ -53,3 +51,26 @@ cnn_confusion_matrix = confusion_matrix(testing_labels_y, predicted_labels_y)
 
 print("CNN Confusion Matrix:")
 print(cnn_confusion_matrix)
+
+
+# === Display the Confusion Matrix ===
+fashion_mnist_label_names = [
+    "T-shirt/top",
+    "Trouser",
+    "Pullover",
+    "Dress",
+    "Coat",
+    "Sandal",
+    "Shirt",
+    "Sneaker",
+    "Bag",
+    "Ankle boot"
+]
+
+ConfusionMatrixDisplay(
+    confusion_matrix=cnn_confusion_matrix,
+    display_labels=fashion_mnist_label_names
+).plot()
+
+plt.title("CNN Confusion Matrix")
+plt.show()
