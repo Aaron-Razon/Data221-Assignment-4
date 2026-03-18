@@ -66,3 +66,9 @@ neural_network_prediction_probabilities = binary_classification_neural_network_m
     standardized_testing_feature_matrix_X,
     verbose=0
 )
+
+# === Convert Probabilities Into Class Predictions ===
+# Convert predicted probabilities into class labels.
+# Probabilities of 0.5 or higher become class 1, and
+# probabilities below 0.5 become class 0.
+neural_network_prediction_probabilities_y = (neural_network_prediction_probabilities >= 0.5).astype(int)
