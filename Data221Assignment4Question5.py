@@ -29,7 +29,9 @@ training_feature_matrix_X, testing_feature_matrix_X, training_target_vector_y, t
     stratify=target_vector_y
 )
 
-# === Neural Network ===
+# ==================================================
+# Neural Network
+# ==================================================
 
 # === Standardize the Input Features ===
 feature_scaler = StandardScaler()
@@ -60,7 +62,6 @@ binary_classification_neural_network_model.fit(
     verbose=0
 )
 
-
 # === Generate Neural Network Prediction Probabilities ===
 neural_network_prediction_probabilities = binary_classification_neural_network_model.predict(
     standardized_testing_feature_matrix_X,
@@ -81,3 +82,21 @@ neural_network_confusion_matrix = confusion_matrix(
     testing_target_vector_y,
     neural_network_testing_predictions_y
 )
+
+# ==================================================
+# Constrained Decision Tree
+# ==================================================
+
+# === Create the Constrained Decision Tree Model ===
+constrained_decision_tree_model = DecisionTreeClassifier(
+    criterion="entropy",
+    max_depth=3,
+    random_state=42
+)
+
+# === Train the Decision Tree Model ===
+constrained_decision_tree_model.fit(training_feature_matrix_X, training_target_vector_y)
+
+# === Make Decision Tree Predictions on the Test Set ===
+decision_tree_testing_predictions_y = constrained_decision_tree_model.predict(testing_feature_matrix_X)
+
