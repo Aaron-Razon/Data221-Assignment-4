@@ -16,11 +16,11 @@ tf.random.set_seed(42)
 # === Load the Dataset ===
 breast_cancer_dataset = load_breast_cancer()
 
-# === Create Feature Matrix X and Target Vector y ===
+# === Create the Feature Matrix X and Target Vector y ===
 feature_matrix_X = breast_cancer_dataset.data
 target_vector_y = breast_cancer_dataset.target
 
-# === Split the Data into Training and Testing Sets ===
+# === Split the Data Into Training and Testing Sets ===
 training_feature_matrix_X, testing_feature_matrix_X, training_target_vector_y, testing_target_vector_y = train_test_split(
     feature_matrix_X,
     target_vector_y,
@@ -31,7 +31,7 @@ training_feature_matrix_X, testing_feature_matrix_X, training_target_vector_y, t
 
 # === Neural Network ===
 
-# === Standardize Input Features ===
+# === Standardize the Input Features ===
 feature_scaler = StandardScaler()
 
 standardized_training_feature_matrix_X = feature_scaler.fit_transform(training_feature_matrix_X)
@@ -71,4 +71,13 @@ neural_network_prediction_probabilities = binary_classification_neural_network_m
 # Convert predicted probabilities into class labels.
 # Probabilities of 0.5 or higher become class 1, and
 # probabilities below 0.5 become class 0.
-neural_network_prediction_probabilities_y = (neural_network_prediction_probabilities >= 0.5).astype(int)
+neural_network_testing_predictions_y = (neural_network_prediction_probabilities >= 0.5).astype(int)
+
+# === Flatten the Predictions Into a 1D Array ===
+neural_network_testing_predictions_y = neural_network_testing_predictions_y.flatten()
+
+# === Compute the Neural Network Confusion Matrix ===
+neural_network_confusion_matrix = confusion_matrix(
+    testing_target_vector_y,
+    neural_network_testing_predictions_y
+)
