@@ -35,7 +35,7 @@ training_feature_matrix_X, testing_feature_matrix_X, training_target_vector_y, t
 feature_scaler = StandardScaler()
 
 standardized_training_feature_matrix_X = feature_scaler.fit_transform(training_feature_matrix_X)
-standardized_testing_feature_matrix_X = feature_scaler.fit_transform(testing_feature_matrix_X)
+standardized_testing_feature_matrix_X = feature_scaler.transform(testing_feature_matrix_X)
 
 # === Build the Neural Network Model ===
 binary_classification_neural_network_model = tf.keras.Sequential([
@@ -61,8 +61,8 @@ binary_classification_neural_network_model.fit(
 )
 
 
-# === Generate Neural Network Prediction Possibilities ===
-neural_network_prediction_possibilities = binary_classification_neural_network_model.predict(
+# === Generate Neural Network Prediction Probabilities ===
+neural_network_prediction_probabilities = binary_classification_neural_network_model.predict(
     standardized_testing_feature_matrix_X,
     verbose=0
 )
