@@ -100,3 +100,7 @@ constrained_decision_tree_model.fit(training_feature_matrix_X, training_target_v
 # === Make Decision Tree Predictions on the Test Set ===
 decision_tree_testing_predictions_y = constrained_decision_tree_model.predict(testing_feature_matrix_X)
 
+# === Add the Decision Tree Confusion Matrix ===
+decision_tree_confusion_matrix = confusion_matrix(
+    testing_target_vector_y, decision_tree_testing_predictions_y
+)
