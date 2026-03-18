@@ -15,7 +15,7 @@ training_images_X = training_images_X.reshape(60000, 28, 28, 1)
 testing_images_X = testing_images_X.reshape(10000, 28, 28, 1)
 
 # === Build the CNN Model ===
-cnn_model = tf.keras.Sequential([
+fashion_mnist_cnn_model = tf.keras.Sequential([
     tf.keras.Input(shape=(28, 28, 1)),
     tf.keras.layers.Conv2D(32, (3, 3), activation="relu"),
     tf.keras.layers.MaxPooling2D((2, 2)),
@@ -24,14 +24,14 @@ cnn_model = tf.keras.Sequential([
 ])
 
 # === Compile the Model ===
-cnn_model.compile(
+fashion_mnist_cnn_model.compile(
     optimizer="adam",
     loss="sparse_categorical_crossentropy",
     metrics=["accuracy"]
 )
 
 # === Train the Model ===
-cnn_model.fit(
+fashion_mnist_cnn_model.fit(
     training_images_X,
     training_labels_y,
     epochs=15,
@@ -40,7 +40,7 @@ cnn_model.fit(
 )
 
 # === Evaluate the Model on the Test Set ===
-test_loss, test_accuracy = cnn_model.evaluate(
+test_loss, test_accuracy = fashion_mnist_cnn_model.evaluate(
     testing_images_X,
     testing_labels_y,
     verbose=0)
