@@ -34,11 +34,16 @@ cnn_model.compile(
 cnn_model.fit(
     training_images_X,
     training_labels_y,
-    epochs=15
+    epochs=15,
+    batch_size=32,
+    verbose=1
 )
 
 # === Evaluate the Model on the Test Set ===
-test_loss, test_accuracy = cnn_model.evaluate(testing_images_X, testing_labels_y)
+test_loss, test_accuracy = cnn_model.evaluate(
+    testing_images_X,
+    testing_labels_y,
+    verbose=0)
 
 # === Report the Test Accuracy ===
 print("Test Accuracy:", test_accuracy)
