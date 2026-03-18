@@ -2,6 +2,11 @@
 
 from tensorflow.keras.datasets import fashion_mnist
 import tensorflow as tf
+import numpy as np
+from sklearn.metrics import confusion_matrix
+
+
+from Data221Assignment4Question6 import fashion_mnist_cnn_model
 
 # === Load the Fashion MNIST Dataset ===
 (training_images_X, training_labels_y), (testing_images_X, testing_labels_y) = fashion_mnist.load_data()
@@ -38,3 +43,13 @@ fashion_mnist_cnn_model.fit(
     batch_size=32,
     verbose=1
 )
+
+# === Generate Predictions on the Test Set ===
+prediction_probabilities = fashion_mnist_cnn_model.predict(testing_images_X, verbose=0)
+predicted_labels_y = np.argmax(prediction_probabilities, axis=1)
+
+# === Compute the Confusion Matrix ===
+cnn_confusion_matrix = confusion_matrix(testing_labels_y, predicted_labels_y)
+
+print("CNN Confusion Matrix:")
+print(cnn_confusion_matrix)
