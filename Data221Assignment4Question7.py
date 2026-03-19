@@ -76,21 +76,34 @@ plt.title("CNN Confusion Matrix")
 plt.show()
 
 # === Find Misclassified Images ===
+# Compare predicted labels to true labels and keep the indexes where they do not match.
 misclassified_image_indexes = np.where(predicted_labels_y != testing_labels_y)[0]
 
 # === Display Three Misclassified Images ===
+# Create a figure wide enough to show 3 images side by side.
 plt.figure(figsize=(10, 4))
 
 for image_position in range(3):
+    # Get the test set index of the current misclassified image.
     misclassified_index = misclassified_image_indexes[image_position]
 
+    # Create a subplot in a 1 row by 3 column layout.
     plt.subplot(1, 3, image_position + 1)
+
+    # Show the image in grayscale.
     plt.imshow(testing_images_X[misclassified_index].reshape(28, 28), cmap="gray")
+
+    # Show the true label and predicted label above the image.
     plt.title(
         f"True: {fashion_mnist_label_names[testing_labels_y[misclassified_index]]}\n"
         f"Predicted: {fashion_mnist_label_names[predicted_labels_y[misclassified_index]]}"
     )
+
+    # Hide axis numbers to make the image easier to read.
     plt.axis("off")
 
+# Adjust spacing so the titles and images do not overlap.
 plt.tight_layout()
+
+# Display the misclassified images.
 plt.show()
