@@ -70,7 +70,7 @@ fashion_mnist_label_names = [
 ConfusionMatrixDisplay(
     confusion_matrix=cnn_confusion_matrix,
     display_labels=fashion_mnist_label_names
-).plot()
+).plot(xticks_rotation=45)
 
 plt.title("CNN Confusion Matrix")
 plt.show()
