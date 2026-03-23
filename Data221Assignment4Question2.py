@@ -43,3 +43,10 @@ testing_accuracy = accuracy_score(testing_target_vector_y, testing_predictions_y
 # === Print the Results ===
 print("Training Accuracy:", training_accuracy)
 print("Test Accuracy:", testing_accuracy)
+
+# Entropy measures how mixed or uncertain the class labels are in a node.
+# A decision tree chooses splits that reduce entropy and make the groups
+# more pure.
+
+# The perfect training accuracy and lower test accuracy suggest that the
+# model may be overfitting the training data somewhat.

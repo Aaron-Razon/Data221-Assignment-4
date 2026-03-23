@@ -72,3 +72,12 @@ testing_loss, testing_accuracy = binary_classification_neural_network_model.eval
 # === Print the Results ===
 print("Training Accuracy:", training_accuracy)
 print("Test Accuracy:", testing_accuracy)
+
+# Feature scaling is important for neural networks because the model learns
+# through numerical optimization. If features are on very different scales,
+# training can become slower and less stable. Standardizing the features
+# helps the model learn more effectively.
+
+# An epoch is one complete pass through the full training dataset.
+# During each epoch, the neural network sees all training examples once
+# and updates its weights as it learns.

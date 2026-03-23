@@ -107,3 +107,11 @@ plt.tight_layout()
 
 # Display the misclassified images.
 plt.show()
+
+# One pattern in the misclassifications is that the model may confuse
+# visually similar clothing items, such as shirts, pullovers, coats,
+# or other classes with similar shapes.
+
+# One realistic way to improve CNN performance is to use a deeper model
+# or train for more epochs so the network can learn more detailed image
+# features.

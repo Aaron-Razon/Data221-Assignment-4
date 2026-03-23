@@ -22,3 +22,11 @@ print("\nClass Counts: ")
 for class_name, class_count in target_class_counts.items():
     class_name = breast_cancer_dataset.target_names[class_name]
     print(f"{class_name}: {class_count}")
+
+# This dataset is slightly imbalanced, but not severely imbalanced.
+# There are more benign samples than malignant samples.
+
+# Class balance is important in classification because if one class
+# appears much more often than the other, a model may become biased
+# toward the majority class. This can make the model look accurate
+# overall while still performing poorly on the minority class.

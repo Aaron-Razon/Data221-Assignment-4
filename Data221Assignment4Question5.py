@@ -126,3 +126,14 @@ ConfusionMatrixDisplay(
 ).plot()
 plt.title("Decision Tree Confusion Matrix")
 plt.show()
+
+# I would prefer the neural network if it produces better overall predictive
+# performance, but I would prefer the decision tree if interpretability is
+# especially important in a medical setting.
+
+# One advantage of the decision tree is that its decisions are easier to
+# explain. One limitation of the decision tree is that it can overfit.
+
+# One advantage of the neural network is that it can learn more complex
+# patterns in the data. One limitation of the neural network is that it
+# is less interpretable.

@@ -61,3 +61,12 @@ top_five_feature_importance_pairs = sorted_feature_importance_pairs[:5]
 print("\nTop Five Most Important Features:")
 for feature_name, importance_score in top_five_feature_importance_pairs:
     print(f"{feature_name}: {importance_score:.4f}")
+
+# Controlling model complexity helps reduce overfitting because the tree
+# is forced to stay simpler and cannot memorize the training data as easily.
+# A simpler tree may have lower training accuracy, but it often generalizes
+# better to unseen test data.
+
+# Feature importance improves interpretability because it shows which
+# features had the greatest influence on the model's decisions. This makes
+# decision trees easier to understand and explain.
