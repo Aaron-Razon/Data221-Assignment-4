@@ -5,25 +5,25 @@ Each question is completed in a separate Python file.
 
 ## File Overview
 
-- **Question1.py**  
+- **Data221Assignment4Question1.py**  
   Loads the breast cancer dataset, examines the feature matrix and target vector, and checks class balance.
 
-- **Question2.py**  
+- ***Data221Assignment4Question2.py**  
   Builds a Decision Tree model using entropy and reports training and test accuracy.
 
-- **Question3.py**  
+- **Data221Assignment4Question3.py**  
   Builds a constrained Decision Tree, reports accuracy, and shows the top five most important features.
 
-- **Question4.py**  
+- **Data221Assignment4Question4.py**  
   Builds a Neural Network for binary classification, using standardized input features, and reports training and test accuracy.
 
-- **Question5.py**  
+- **Data221Assignment4Question5.py**  
   Compares the constrained Decision Tree and Neural Network using confusion matrices.
 
-- **Question6.py**  
+- **Data221Assignment4Question6.py**  
   Builds and trains a Convolutional Neural Network (CNN) on the Fashion MNIST dataset and reports test accuracy.
 
-- **Question7.py**  
+- **Data221Assignment4Question7.py**  
   Analyzes CNN performance using a confusion matrix and displays misclassified Fashion MNIST images.
 
 ## Notes
