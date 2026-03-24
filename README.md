@@ -8,7 +8,7 @@ Each question is completed in a separate Python file.
 - **Data221Assignment4Question1.py**  
   Loads the breast cancer dataset, examines the feature matrix and target vector, and checks class balance.
 
-- ***Data221Assignment4Question2.py**  
+- **Data221Assignment4Question2.py**  
   Builds a Decision Tree model using entropy and reports training and test accuracy.
 
 - **Data221Assignment4Question3.py**  
